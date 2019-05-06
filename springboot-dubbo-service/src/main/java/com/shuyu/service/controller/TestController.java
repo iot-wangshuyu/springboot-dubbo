@@ -1,8 +1,14 @@
 package com.shuyu.service.controller;
 
+import com.shuyu.api.dto.UserDTO;
+import com.shuyu.api.service.UserService;
+import jdk.nashorn.internal.ir.annotations.Reference;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 /**
  * @package: com.shuyu.service.controller
@@ -16,8 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("")
 public class TestController {
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("service")
-	public String hello(){
-		return "Hello Service";
+	public List<UserDTO> hello() {
+		return userService.listUser();
 	}
 }
