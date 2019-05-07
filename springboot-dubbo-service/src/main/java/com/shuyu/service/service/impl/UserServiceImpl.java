@@ -35,9 +35,6 @@ public class UserServiceImpl implements UserService {
 		userDTOList = users.stream().map(user -> {
 			return new UserDTO(user.getUserName(), user.getUserCode());
 		}).collect(Collectors.toList());
-		//		for (User user:users) {
-		//			userDTOList.add(new UserDTO(user.getUserName(),user.getUserCode()));
-		//		}
 		return userDTOList;
 	}
 }
